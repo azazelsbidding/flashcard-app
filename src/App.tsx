@@ -68,7 +68,7 @@ export default function Game() {
 	const [history, setHistory] = useState([Array(9).fill(null)]);
 	const [currentMove, setCurrentMove] = useState(0);
 	const xNext = currentMove % 2 === 0;
-	const currentSquares = history[currentMove];
+	const currentSquares = history[currentMove];	
 
 	function handlePlay(nextSquares: (string | null)[]) {
 		const nextHistory = [...history.slice(0,currentMove + 1), nextSquares];
@@ -80,7 +80,7 @@ export default function Game() {
 		setCurrentMove(nextMove);
 	}
 
-	const moves = history.map((squares, move) => {
+	const moves = history.map((_, move) => {
 		let description;
 		if(move > 0)	{ description = 'Go to move #' + move; }
 		else			{ description = 'Go to game start'; }
